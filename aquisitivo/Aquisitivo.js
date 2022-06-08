@@ -55,5 +55,10 @@ const Aquisitivo = connection.define('aquisitivo', {
     },
     abono3fer: {
         type: Sequelize.NUMBER,
-    }
+    },
+    slug: {
+        type: Sequelize.STRING,
+    },
 });
+
+module.exports = Aquisitivo;
