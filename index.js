@@ -22,7 +22,10 @@ connection
 app.use('/', aquisitivoController);
 
 app.get('/', (req, res) => {
-    res.render('index');
+    Articles.findAll()
+    .then(ferias => {
+        res.render('index', {ferias: ferias});
+    })
 })
 
 app.listen(8008, () => {

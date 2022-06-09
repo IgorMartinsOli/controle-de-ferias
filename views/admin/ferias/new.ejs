@@ -1,0 +1,37 @@
+<%- include('../../partials/header.ejs') %>
+
+<div class="container">
+    <hr>
+    <div class="card">
+        <div class="card-header">
+            <h2>Cadastro de ferias</h2>
+        </div>
+        <div class="card-body">
+            <form method="post" action="/aquisitivo/save">
+                <input class="form-control" type="number" name="filial" placeholder="Filial"><br>
+                <input class="form-control" type="number" name="matricula" placeholder="matricula"><br>
+                <input class="form-control" type="text" name="nome" placeholder="nome"><br>
+                <input class="form-control" type="number" name="codcc" placeholder="codigo do cc"><br>
+                <input class="form-control" type="text" name="nomecc" placeholder="nome do cc"><br>
+                <input class="form-control" type="number" name="codcargo" placeholder="cod do cargo"><br>
+                <input class="form-control" type="text" name="nomecargo" placeholder="nome do cargo"><br>
+                <input class="form-control" type="date" name="inicioper" placeholder="inicio do periodo"><br>
+                <input class="form-control" type="date" name="fimper" placeholder="fim do periodo"><br>
+                <input class="form-control" type="date" name="ini1fer" placeholder="inicio do 1 de ferias"><br>
+                <input class="form-control" type="number" name="dias1fer" placeholder="dias de ferias"><br>
+                <input class="form-control" type="number" name="abono1fer" placeholder="dias de abono"><br>
+                <input class="form-control" type="date" name="ini2fer" placeholder="inicio do 2 de ferias"><br>
+                <input class="form-control" type="number" name="dias2fer" placeholder="dias de ferias"><br>
+                <input class="form-control" type="number" name="abono2fer" placeholder="dias de abono"><br>
+                <input class="form-control" type="date" name="ini3fer" placeholder="inicio do 3 de ferias"><br>
+                <input class="form-control" type="number" name="dias3fer" placeholder="dias de ferias"><br>
+                <input class="form-control" type="number" name="abono3fer" placeholder="dias de abono"><br>
+                <input class="form-control" type="text" name="slug" placeholder=""><br>
+                <button class="btn btn-success">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<%- include('../../partials/footer.ejs') %>
