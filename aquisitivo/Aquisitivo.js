@@ -80,6 +80,6 @@ const Aquisitivo = connection.define('aquisitivo', {
     },
 });
 
-Aquisitivo.sync({force: true});
+//Aquisitivo.sync({force: true});
 
 module.exports = Aquisitivo;
