@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const connection = require('./database/database');
 const aquisitivoController = require('./aquisitivo/aquisitivoController');
-
+const Aquisitivo = require('./aquisitivo/Aquisitivo');
 app.set('view engine', 'ejs');
 
 app.use(express.static('public'));

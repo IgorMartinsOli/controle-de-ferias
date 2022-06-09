@@ -3,62 +3,83 @@ const connection = require('../database/database');
 
 const Aquisitivo = connection.define('aquisitivo', {
     filial: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
+        allowNull: true
     },
     matricula: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
+        allowNull: true
     },
     nome: {
         type: Sequelize.STRING,
+        allowNull: true
     },
     codcc: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
+        allowNull: true
     },
     nomecc: {
         type: Sequelize.STRING,
+        allowNull: true
     },
     codcargo: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
+        allowNull: true
     },
     nomecargo: {
         type: Sequelize.STRING,
+        allowNull: true
     },
     inicioper: {
         type: Sequelize.DATE,
+        allowNull: true
     },
     fimper: {
         type: Sequelize.DATE,
+        allowNull: true
     },
     ini1fer: {
         type: Sequelize.DATE,
+        allowNull: true
     },
     dias1fer: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
+        allowNull: true
     },
     abono1fer: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
+        allowNull: true
     },
     ini2fer: {
         type: Sequelize.DATE,
+        allowNull: true
     },
     dias2fer: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
+        allowNull: true
     },
     abono2fer: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
+        allowNull: true
     },
     ini3fer: {
         type: Sequelize.DATE,
+        allowNull: true
     },
     dias3fer: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
+        allowNull: true
     },
     abono3fer: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
+        allowNull: true
     },
     slug: {
         type: Sequelize.STRING,
+        allowNull: true
     },
 });
+
+Aquisitivo.sync({force: true});
 
 module.exports = Aquisitivo;
