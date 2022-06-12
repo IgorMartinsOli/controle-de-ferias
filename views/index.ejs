@@ -2,7 +2,7 @@
 <%- include('./partials/homenavbar.ejs') %>
 
 <body>
-    <div class="container">
+    <div class="container-lg">
         <div class="jumbotron">
             <h1 class="display-4">Bem-vindo!</h1>
             <p class="lead">Este é um sistema de controle de férias.</p>
@@ -18,6 +18,13 @@
                     <th>Cargo</th>
                     <th>Inicio periodo</th>
                     <th>Fim periodo</th>
+                    <th>1 ferias</th>
+                    <th>dias 1 ferias</th>
+                    <th>2 ferias</th>
+                    <th>dias 2 ferias</th>
+                    <th>3 ferias</th>
+                    <th>dias 3 ferias</th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -29,9 +36,16 @@
                         <td><%= ferias.nomecargo %></td>
                         <td><%= ferias.inicioper.getDate() + "/" + ferias.inicioper.getMonth() + "/"+ ferias.inicioper.getFullYear() %></td>
                         <td><%= ferias.fimper.getDate() + "/" + ferias.fimper.getMonth() + "/"+ ferias.fimper.getFullYear() %></td>
+                        <td><%= ferias.ini1fer.getDate() + "/" + ferias.ini1fer.getMonth() + "/"+ ferias.ini1fer.getFullYear() %></td>
+                        <td><%= ferias.dias1fer %></td>
+                        <td><%= ferias.ini2fer.getDate() + "/" + ferias.ini2fer.getMonth() + "/"+ ferias.ini2fer.getFullYear() %></td>
+                        <td><%= ferias.dias2fer %></td>
+                        <td><%= ferias.ini3fer.getDate() + "/" + ferias.ini3fer.getMonth() + "/"+ ferias.ini3fer.getFullYear() %></td>
+                        <td><%= ferias.dias3fer %></td>
                         <td>
-                        <a href="" class="btn btn-warning">Solicitar ferias</a>
+                            <a href="" class="btn btn-warning">Solicitar ferias</a>
                         </td>
+                        
                     </tr>
                     <% }) %>
             </tbody>
