@@ -4,6 +4,9 @@ const bodyParser = require('body-parser');
 const connection = require('./database/database');
 const aquisitivoController = require('./aquisitivo/aquisitivoController');
 const Aquisitivo = require('./aquisitivo/Aquisitivo');
+const solicitacaoController = require('./solicitacoes/solicitacaoController');
+const Solicitacao = require('./solicitacoes/Solicitacao');
+
 app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
@@ -20,13 +23,14 @@ connection
     })
 
 app.use('/', aquisitivoController);
+app.use('/', solicitacaoController);
 
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
     Articles.findAll()
     .then(ferias => {
         res.render('index', {ferias: ferias});
     })
-})
+})*/
 
 app.listen(8008, () => {
     console.log('listening on 8008');

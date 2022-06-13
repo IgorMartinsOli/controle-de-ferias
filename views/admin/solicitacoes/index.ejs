@@ -1,8 +1,8 @@
-<%- include('./partials/header.ejs') %>
-<%- include('./partials/homenavbar.ejs') %>
+<%- include('../../partials/header.ejs') %>
+<%- include('../../partials/homenavbar.ejs') %>
 
 <body>
-    <div class="container-lg">
+    <div class="container">
         <hr>
         <!--TODO: alterar tabelas para grip com Boostrap-->
         <table class="table table-striped table-borderless table-hover">
@@ -10,36 +10,32 @@
                 <tr>
                     <th>Matricula</th>
                     <th>Nome</th>
-                    <th>Centro de custo</th>
-                    <th>Cargo</th>
-                    <th>Inicio periodo</th>
-                    <th>Fim periodo</th>
-                    
+                    <th>Periodo inicial</th>
+                    <th>Periodo final</th>
+                    <th>Data de inicio</th>
+                    <th>Data fim</th>
+                    <th>Dias de ferias</th>
+                    <th>Dias de abono</th>
                 </tr>
             </thead>
             <tbody>
-                <% ferias.forEach(ferias => {  %>
+                <% solicitacoes.forEach(solicitacoes => {  %>
                     <tr>
-                        <td><%= ferias.matricula %></td>
-                        <td><%= ferias.nome %></td>
-                        <td><%= ferias.nomecc %></td>
-                        <td><%= ferias.nomecargo %></td>
-                        <td><%= ferias.inicioper.getDate() + "/" + ferias.inicioper.getMonth() + "/"+ ferias.inicioper.getFullYear() %></td>
-                        <td><%= ferias.fimper.getDate() + "/" + ferias.fimper.getMonth() + "/"+ ferias.fimper.getFullYear() %></td>
-                        <td><%= ferias.ini1fer.getDate() + "/" + ferias.ini1fer.getMonth() + "/"+ ferias.ini1fer.getFullYear() %></td>
-                        <td><%= ferias.dias1fer %></td>
-                        <td><%= ferias.ini2fer.getDate() + "/" + ferias.ini2fer.getMonth() + "/"+ ferias.ini2fer.getFullYear() %></td>
-                        <td><%= ferias.dias2fer %></td>
-                        <td><%= ferias.ini3fer.getDate() + "/" + ferias.ini3fer.getMonth() + "/"+ ferias.ini3fer.getFullYear() %></td>
-                        <td><%= ferias.dias3fer %></td>
+                        <td><%= solicitacoes.aquisitivo.matricula %></td>
+                        <td><%= solicitacoes.aquisitivo.nome %></td>
+                        <td><%= solicitacoes.aquisitivo.inicioper %></td>
+                        <td><%= solicitacoes.aquisitivo.fimper %></td>
+                        <td><%= solicitacoes.dataInicio %></td>
+                        <td><%= solicitacoes.dataFim %></td>
+                        <td><%= solicitacoes.diasFerias %></td>
+                        <td><%= solicitacoes.diasAbono %></td>
                         <td>
                             <a href="" class="btn btn-warning">Finalizar</a>
                         </td>
-                        
                     </tr>
                     <% }) %>
             </tbody>
         </table>
 </body>
 
-<%- include('./partials/footer.ejs') %>
+<%- include('../../partials/footer.ejs') %>
