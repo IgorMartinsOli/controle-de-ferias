@@ -7,9 +7,10 @@
             <h1 class="display-4">Bem-vindo!</h1>
             <p class="lead">Este é um sistema de controle de férias.</p>
         </div>
+        <button style="position: absolute; right: 10px;" class="btn btn-secondary">Baixar relatorio</button>
         <hr>
         <!--TODO: alterar tabelas para grip com Boostrap-->
-        <table class="table table-sm table-striped table-borderless table-hover">
+        <table class="table table-sm table-striped table-borderless table-hover text-center">
             <thead>
                 <tr>
                     <th>Matricula</th>
@@ -18,8 +19,7 @@
                     <th>Cargo</th>
                     <th>Inicio periodo</th>
                     <th>Fim periodo</th>
-                    <th>1 ferias</th>
-                    <th>dias 1 ferias</th>
+                    <th  colspan="2">1 ferias</th>
                     <th>2 ferias</th>
                     <th>dias 2 ferias</th>
                     <th>3 ferias</th>
@@ -31,9 +31,9 @@
                 <% ferias.forEach(ferias => {  %>
                     <tr>
                         <td><%= ferias.matricula %></td>
-                        <td><%= ferias.nome %></td>
-                        <td><%= ferias.nomecc %></td>
-                        <td><%= ferias.nomecargo %></td>
+                        <td class="text-left"><%= ferias.nome %></td>
+                        <td class="text-left"><%= ferias.nomecc %></td>
+                        <td class="text-left"><%= ferias.nomecargo %></td>
                         <td><%= ferias.inicioper.getDate() + "/" + ferias.inicioper.getMonth() + "/"+ ferias.inicioper.getFullYear() %></td>
                         <td><%= ferias.fimper.getDate() + "/" + ferias.fimper.getMonth() + "/"+ ferias.fimper.getFullYear() %></td>
                         <td><%= ferias.ini1fer.getDate() + "/" + ferias.ini1fer.getMonth() + "/"+ ferias.ini1fer.getFullYear() %></td>
@@ -50,7 +50,7 @@
                     <% }) %>
             </tbody>
         </table>
-        <button style="position: absolute; right: 10px;" class="btn btn-secondary">Baixar relatorio</button>
+        
 </body>
 
 <%- include('./partials/footer.ejs') %>
