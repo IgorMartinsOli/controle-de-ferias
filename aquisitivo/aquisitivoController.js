@@ -60,5 +60,39 @@ router.post("/aquisitivo/save", (req, res) => {
     });
 });
 
+router.get('/ferias/edit/:id', (req, res) => {
+    let id = req.params.id;
+    Aquisitivo.findByPk(id).then(ferias => {
+        if(ferias !== undefined){
+                res.render('admin/articles/edit', {ferias: ferias});
+        }else{
+            res.redirect('/');
+        }
+    }).catch(error => {
+        res.redirect('/');
+    })
+});
+
+//TODO: implementar update
+router.post('/articles/update', (req, res) => {
+    let id = req.body.id;
+    let title = req.body.title;
+    let body = req.body.body;
+    var category = req.body.category;
+
+    Article.update(
+        {title: title,
+        slug: slugify(title),
+        body: body,
+        categoryId: category
+    },
+        {where: {id: id}},
+        ).then(() =>{
+            res.redirect('/admin/articles')
+        }).catch(error => {
+            console.log(error.message);
+            res.redirect('/')
+        })
+})
 
 module.exports = router;
