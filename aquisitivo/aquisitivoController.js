@@ -6,6 +6,7 @@ const moment = require("moment");
 router.get('/', function(req, res) {
     Aquisitivo.findAll()
     .then(ferias => {
+        console.log(ferias);
         res.render('index.ejs', {ferias: ferias});
     })
 });
@@ -64,7 +65,7 @@ router.get('/ferias/edit/:id', (req, res) => {
     let id = req.params.id;
     Aquisitivo.findByPk(id).then(ferias => {
         if(ferias !== undefined){
-                res.render('admin/articles/edit', {ferias: ferias});
+                res.render('../views/admin/ferias/edit.ejs', {ferias: ferias});
         }else{
             res.redirect('/');
         }
@@ -95,4 +96,38 @@ router.post('/articles/update', (req, res) => {
         })
 })
 
+router.get('/ferias/page/:num', (req, res) => {
+    let page = req.params.num;
+    var offset = 0;
+
+    if(isNaN(page) || page == 1){
+        offset = 0;
+    }else {
+        offset = (parseInt(page) -1 )*4;
+    }
+
+    Aquisitivo.findAndCountAll({
+        limit: 4,
+        offset: offset,
+        order:[
+            ['id', 'desc']
+        ],
+        limit: 4
+    }).then(articles =>{
+        var next;
+        if(offset + 4 >= articles.count){
+            next = false;
+        }else{
+            next = true;
+        }
+
+        let result = {
+            page: parseInt(page),
+            next: next,
+            articles: articles
+        }
+        
+        res.render('admin/articles/page', {result: result});
+    })
+})
 module.exports = router;
