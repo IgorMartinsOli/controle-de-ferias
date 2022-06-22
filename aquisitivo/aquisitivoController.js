@@ -6,7 +6,6 @@ const moment = require("moment");
 router.get('/', function(req, res) {
     Aquisitivo.findAll()
     .then(ferias => {
-        console.log(ferias);
         res.render('index.ejs', {ferias: ferias});
     })
 });
@@ -75,24 +74,34 @@ router.get('/ferias/edit/:id', (req, res) => {
 });
 
 //TODO: implementar update
-router.post('/articles/update', (req, res) => {
-    let id = req.body.id;
-    let title = req.body.title;
-    let body = req.body.body;
-    var category = req.body.category;
+router.post('/ferias/update', (req, res) => {
+    let ini1fer = req.body.ini1fer;
+    let dias1fer = req.body.dias1fer;
+    let abono1fer = req.body.abono1fer;
+    let ini2fer = req.body.ini2fer;
+    let dias2fer = req.body.dias2fer;
+    let abono2fer = req.body.abono2fer;
+    let ini3fer = req.body.ini3fer;
+    let dias3fer = req.body.dias3fer;
+    let abono3fer = req.body.abono3fer;
 
-    Article.update(
-        {title: title,
-        slug: slugify(title),
-        body: body,
-        categoryId: category
+    Aquisitivo.update({
+        ini1fer: ini1fer,
+        dias1fer: dias1fer,
+        abono1fer: abono1fer,
+        ini2fer: ini2fer,
+        dias2fer:dias2fer,
+        abono2fer:abono2fer,
+        ini3fer:ini3fer,
+        dias3fer:dias3fer,
+        abono3fer:abono3fer 
     },
         {where: {id: id}},
         ).then(() =>{
-            res.redirect('/admin/articles')
+            res.redirect('/');
         }).catch(error => {
             console.log(error.message);
-            res.redirect('/')
+            res.redirect('/');
         })
 })
 

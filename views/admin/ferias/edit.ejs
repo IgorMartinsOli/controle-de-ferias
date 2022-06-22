@@ -12,9 +12,20 @@
                 <div class="container">
                     <p name="matricula"> Matricula <%= ferias.matricula %></p>
                     <p name="nome">Nome <%= ferias.nome %></p>
-                    <p>Inicio periodo aquisitivo <%= ferias.inicioper.getDate()+ %></p>
-                    <p>fim periodo aquisitivo <%= ferias.ini3fer.getDate() + "/" + ferias.ini3fer.getMonth() + "/"+ ferias.ini3fer.getFullYear() %></p>
+                    <p>Inicio periodo aquisitivo <%= ferias.inicioper %></p>
+                    <p>fim periodo aquisitivo <%= ferias.ini3fer %></p>
                 </div>
+                <p>
+                    marcadas para ferias para <%= ferias.ini1fer %><input class="form-control" type="date" name="ini1fer" placeholder="inicio do 1 de ferias">
+                </p>
+                <input class="form-control" type="number" name="dias1fer" placeholder="dias de ferias"><br>
+                <input class="form-control" type="number" name="abono1fer" placeholder="dias de abono"><br>
+                <input class="form-control" type="date" name="ini2fer" placeholder="inicio do 2 de ferias"><br>
+                <input class="form-control" type="number" name="dias2fer" placeholder="dias de ferias"><br>
+                <input class="form-control" type="number" name="abono2fer" placeholder="dias de abono"><br>
+                <input class="form-control" type="date" name="ini3fer" placeholder="inicio do 3 de ferias"><br>
+                <input class="form-control" type="number" name="dias3fer" placeholder="dias de ferias"><br>
+                <input class="form-control" type="number" name="abono3fer" placeholder="dias de abono"><br>
                 <br><hr>
                 <button class="btn btn-success">Atualizar</button>
             </form>
