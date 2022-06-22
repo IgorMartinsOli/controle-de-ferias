@@ -10,9 +10,10 @@
         <div class="card-body">
             <form method="post" action="/articles/update">
                 <div class="container">
-                    <p name="matricula"><%= ferias.matricula %></p>
-                    <p name="matricula"><%= ferias.nome %></p>
-                    <input class="form-control" type="date" name="title" id="title" value="<%= ferias.inicioper.getDate() %>">
+                    <p name="matricula"> Matricula <%= ferias.matricula %></p>
+                    <p name="nome">Nome <%= ferias.nome %></p>
+                    <p>Inicio periodo aquisitivo <%= ferias.inicioper.getDate()+ %></p>
+                    <p>fim periodo aquisitivo <%= ferias.ini3fer.getDate() + "/" + ferias.ini3fer.getMonth() + "/"+ ferias.ini3fer.getFullYear() %></p>
                 </div>
                 <br><hr>
                 <button class="btn btn-success">Atualizar</button>
