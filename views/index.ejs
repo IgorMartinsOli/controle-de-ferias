@@ -10,7 +10,7 @@
         
         <hr>
         <!--TODO: alterar tabelas para grip com Boostrap-->
-        <table class="table table-sm table-striped table-borderless table-hover text-center">
+        <table class="table table-sm table-striped table-borderless text-center">
             <button style="position: relative;" class="btn btn-secondary">Baixar relatorio</button>
             <thead>
                 <tr>
@@ -36,13 +36,13 @@
                         <td class="text-left"><%= ferias.nome %></td>
                         <td class="text-left"><%= ferias.nomecc %></td>
                         <td class="text-left"><%= ferias.nomecargo %></td>
-                        <td><%= ferias.inicioper.getDate() + "/" + ferias.inicioper.getMonth() + "/"+ ferias.inicioper.getFullYear() %></td>
-                        <td><%= ferias.fimper.getDate() + "/" + ferias.fimper.getMonth() + "/"+ ferias.fimper.getFullYear() %></td>
-                        <td><%= ferias.ini1fer.getDate() + "/" + ferias.ini1fer.getMonth() + "/"+ ferias.ini1fer.getFullYear() %></td>
+                        <td><%= ferias.inicioper %></td>
+                        <td><%= ferias.fimper %></td>
+                        <td><%= ferias.ini1fer %></td>
                         <td><%= ferias.dias1fer %></td>
-                        <td><%= ferias.ini2fer.getDate() + "/" + ferias.ini2fer.getMonth() + "/"+ ferias.ini2fer.getFullYear() %></td>
+                        <td><%= ferias.ini2fer %></td>
                         <td><%= ferias.dias2fer %></td>
-                        <td><%= ferias.ini3fer.getDate() + "/" + ferias.ini3fer.getMonth() + "/"+ ferias.ini3fer.getFullYear() %></td>
+                        <td><%= ferias.ini3fer %></td>
                         <td><%= ferias.dias3fer %></td>
                         <td>
                             <a href="/ferias/edit/<%= ferias.id %>" class="btn btn-warning">Solicitar ferias</a>
@@ -54,5 +54,11 @@
         </table>
         
 </body>
+<script>
+const formateDate = (date) => {
+    date = `${date.getDate()}`
+    return date;
+}
+</script>
 
 <%- include('./partials/footer.ejs') %>

@@ -21,8 +21,8 @@ const Solicitacao = connection.define('solicitacoes', {
     }
 })
 
-Aquisitivo.hasMany(Solicitacao); //Um periodo aquisitivo tem muitas solicitacoes
-Solicitacao.belongsTo(Aquisitivo); //Uma solicitacao pertence a um periodo
+//Aquisitivo.hasMany(Solicitacao); //Um periodo aquisitivo tem muitas solicitacoes
+//Solicitacao.belongsTo(Aquisitivo); //Uma solicitacao pertence a um periodo
 
-//Solicitacao.sync({force: true});
+Solicitacao.sync({force: true});
 module.exports = Solicitacao;

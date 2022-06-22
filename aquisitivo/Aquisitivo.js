@@ -31,15 +31,15 @@ const Aquisitivo = connection.define('aquisitivo', {
         allowNull: true
     },
     inicioper: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: true
     },
     fimper: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: true
     },
     ini1fer: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: true
     },
     dias1fer: {
@@ -51,7 +51,7 @@ const Aquisitivo = connection.define('aquisitivo', {
         allowNull: true
     },
     ini2fer: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: true
     },
     dias2fer: {
@@ -63,7 +63,7 @@ const Aquisitivo = connection.define('aquisitivo', {
         allowNull: true
     },
     ini3fer: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: true
     },
     dias3fer: {
@@ -79,7 +79,6 @@ const Aquisitivo = connection.define('aquisitivo', {
         allowNull: true
     },
 });
-
 
 //Aquisitivo.sync({force: true});
 
