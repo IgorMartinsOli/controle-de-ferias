@@ -14,15 +14,15 @@ const Solicitacao = connection.define('solicitacoes', {
         allowNull: true
     }, diasAbono: {
         type: Sequelize.DATE,
-        allowNull: true
+        allowNull: true,
     }, status: {
         type: Sequelize.BOOLEAN,
         allowNull: true
     }
 })
 
-//Aquisitivo.hasMany(Solicitacao); //Um periodo aquisitivo tem muitas solicitacoes
-//Solicitacao.belongsTo(Aquisitivo); //Uma solicitacao pertence a um periodo
+Aquisitivo.hasMany(Solicitacao); //Um periodo aquisitivo tem muitas solicitacoes
+Solicitacao.belongsTo(Aquisitivo); //Uma solicitacao pertence a um periodo
 
-Solicitacao.sync({force: true});
+//Solicitacao.sync({force: true});
 module.exports = Solicitacao;
