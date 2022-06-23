@@ -20,13 +20,12 @@
                     <th>Cargo</th>
                     <th>Inicio periodo</th>
                     <th>Fim periodo</th>
-                    <!-- TODO: alterar colunas ocupar somente uma-->
-                    <th  colspan="2">1 ferias</th>
+                    <th>1 ferias</th>
+                    <th>dias 1 ferias</th>
                     <th>2 ferias</th>
                     <th>dias 2 ferias</th>
                     <th>3 ferias</th>
                     <th>dias 3 ferias</th>
-                    
                 </tr>
             </thead>
             <tbody>
@@ -36,13 +35,13 @@
                         <td class="text-left"><%= ferias.nome %></td>
                         <td class="text-left"><%= ferias.nomecc %></td>
                         <td class="text-left"><%= ferias.nomecargo %></td>
-                        <td><%= ferias.inicioper %></td>
-                        <td><%= ferias.fimper %></td>
-                        <td><%= ferias.ini1fer %></td>
+                        <td><%= moment(ferias.inicioper).format('DD/MM/YYYY'); %></td>
+                        <td><%= moment(ferias.fimper).format('DD/MM/YYYY'); %></td>
+                        <td><%= moment(ferias.ini1fer).format('DD/MM/YYYY'); %></td>
                         <td><%= ferias.dias1fer %></td>
-                        <td><%= ferias.ini2fer %></td>
+                        <td><%= moment(ferias.ini2fer).format('DD/MM/YYYY'); %></td>
                         <td><%= ferias.dias2fer %></td>
-                        <td><%= ferias.ini3fer %></td>
+                        <td><%= moment(ferias.ini3fer).format('DD/MM/YYYY'); %></td>
                         <td><%= ferias.dias3fer %></td>
                         <td>
                             <a href="/ferias/edit/<%= ferias.id %>" class="btn btn-warning">Solicitar ferias</a>

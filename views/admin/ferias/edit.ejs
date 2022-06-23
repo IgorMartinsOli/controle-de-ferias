@@ -8,26 +8,31 @@
             <h2>Solicitar férias</h2>
         </div>
         <div class="card-body">
-            <form method="post" action="/articles/update">
-                <div class="container">
-                    <p name="matricula"> Matricula <%= ferias.matricula %></p>
-                    <p name="nome">Nome <%= ferias.nome %></p>
-                    <p>Inicio periodo aquisitivo <%= ferias.inicioper %></p>
-                    <p>fim periodo aquisitivo <%= ferias.ini3fer %></p>
+            <form method="post" action="/ferias/update">
+                <div class="container" style="min-width:300px">
+                    <p name="matricula"> Matricula: <%= ferias.matricula %></p>
+                    <p name="nome">Nome: <%= ferias.nome %></p>
+                    <p>Inicio periodo aquisitivo: <%= moment(ferias.inicioper).format('DD/MM/YYYY'); %></p>
+                    <p>Fim periodo aquisitivo: <%= moment(ferias.fimper).format('DD/MM/YYYY'); %></p>
+                    
+                    <div>
+                        <label>1º periodo de férias marcado para <%= moment(ferias.ini1fer).format('DD/MM/YYYY'); %> por <%= ferias.dias1fer %> dias, marcar para</label>
+                        <input id="date" type="date">
+                        por <input type="text"> dias
+                    </div>
+                    <div>
+                        <label>2º periodo de férias marcado para <%= moment(ferias.ini2fer).format('DD/MM/YYYY'); %> por <%= ferias.dias2fer %> dias, marcar para</label>
+                        <input id="date" type="date">
+                        por <input type="text"> dias
+                    </div>
+                    <div>
+                        <label>3º periodo de férias marcado para <%= moment(ferias.ini3fer).format('DD/MM/YYYY');  %> por <%= ferias.dias3fer %> dias, marcar para</label>
+                        <input id="date" type="date">
+                        por <input type="text"> dias
+                    </div>
                 </div>
-                <p>
-                    marcadas para ferias para <%= ferias.ini1fer %><input class="form-control" type="date" name="ini1fer" placeholder="inicio do 1 de ferias">
-                </p>
-                <input class="form-control" type="number" name="dias1fer" placeholder="dias de ferias"><br>
-                <input class="form-control" type="number" name="abono1fer" placeholder="dias de abono"><br>
-                <input class="form-control" type="date" name="ini2fer" placeholder="inicio do 2 de ferias"><br>
-                <input class="form-control" type="number" name="dias2fer" placeholder="dias de ferias"><br>
-                <input class="form-control" type="number" name="abono2fer" placeholder="dias de abono"><br>
-                <input class="form-control" type="date" name="ini3fer" placeholder="inicio do 3 de ferias"><br>
-                <input class="form-control" type="number" name="dias3fer" placeholder="dias de ferias"><br>
-                <input class="form-control" type="number" name="abono3fer" placeholder="dias de abono"><br>
                 <br><hr>
-                <button class="btn btn-success">Atualizar</button>
+                <button class="btn btn-success">Solicitar</button>
             </form>
         </div>
     </div>

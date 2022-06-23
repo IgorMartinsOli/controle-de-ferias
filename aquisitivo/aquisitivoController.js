@@ -6,7 +6,7 @@ const moment = require("moment");
 router.get('/', function(req, res) {
     Aquisitivo.findAll()
     .then(ferias => {
-        res.render('index.ejs', {ferias: ferias});
+        res.render('index.ejs', {ferias: ferias, moment: moment});
     })
 });
 
@@ -64,7 +64,7 @@ router.get('/ferias/edit/:id', (req, res) => {
     let id = req.params.id;
     Aquisitivo.findByPk(id).then(ferias => {
         if(ferias !== undefined){
-                res.render('../views/admin/ferias/edit.ejs', {ferias: ferias});
+                res.render('../views/admin/ferias/edit.ejs', {ferias: ferias, moment: moment});
         }else{
             res.redirect('/');
         }
