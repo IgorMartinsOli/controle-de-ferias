@@ -18,15 +18,18 @@
                     <div>
                         <label>1º periodo de férias marcado para <%= moment(ferias.ini1fer).format('DD/MM/YYYY'); %> por <%= ferias.dias1fer %> dias, marcar para</label>
                         <input id="date" type="date">
-                        por <input type="text"> dias
+                        por <input type="text"> dias    
                     </div>
                     <div>
                         <label>2º periodo de férias marcado para <%= moment(ferias.ini2fer).format('DD/MM/YYYY'); %> por <%= ferias.dias2fer %> dias, marcar para</label>
                         <input id="date" type="date">
-                        por <input type="text"> dias
+                        por <input type="number"> dias
                     </div>
                     <div>
-                        <label>3º periodo de férias marcado para <%= moment(ferias.ini3fer).format('DD/MM/YYYY');  %> por <%= ferias.dias3fer %> dias, marcar para</label>
+                        <label>
+                            <% if(ferias.ini3fer != null){ %>
+                                3º periodo de férias marcado para <%= moment(ferias.ini3fer).format('DD/MM/YYYY');  %> por <%= ferias.dias3fer %> dias, marcar para</label>
+                            <% } %>
                         <input id="date" type="date">
                         por <input type="text"> dias
                     </div>
