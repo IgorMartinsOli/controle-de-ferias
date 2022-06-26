@@ -31,46 +31,34 @@ const Aquisitivo = connection.define('aquisitivo', {
         allowNull: true
     },
     inicioper: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: true
     },
     fimper: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: true
     },
     ini1fer: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: true
     },
     dias1fer: {
         type: Sequelize.INTEGER,
         allowNull: true
     },
-    abono1fer: {
-        type: Sequelize.INTEGER,
-        allowNull: true
-    },
     ini2fer: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: true
     },
     dias2fer: {
         type: Sequelize.INTEGER,
         allowNull: true
     },
-    abono2fer: {
-        type: Sequelize.INTEGER,
-        allowNull: true
-    },
     ini3fer: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: true
     },
     dias3fer: {
-        type: Sequelize.INTEGER,
-        allowNull: true
-    },
-    abono3fer: {
         type: Sequelize.INTEGER,
         allowNull: true
     },
