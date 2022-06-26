@@ -26,14 +26,13 @@ router.post("/aquisitivo/save", (req, res) => {
     let fimper = req.body.fimper;
     let ini1fer = req.body.ini1fer;
     let dias1fer = req.body.dias1fer;
-    let abono1fer = req.body.abono1fer;
     let ini2fer = req.body.ini2fer;
     let dias2fer = req.body.dias2fer;
-    let abono2fer = req.body.abono2fer;
     let ini3fer = req.body.ini3fer;
     let dias3fer = req.body.dias3fer;
-    let abono3fer = req.body.abono3fer;
     let slug = req.body.slug;
+
+    console.log(ini2fer);
 
     Aquisitivo.create({
         filial: filial,
@@ -47,17 +46,16 @@ router.post("/aquisitivo/save", (req, res) => {
         fimper: fimper,
         ini1fer: ini1fer,
         dias1fer: dias1fer,
-        abono1fer: abono1fer,
         ini2fer: ini2fer,
-        dias2fer: dias2fer,
-        abono2fer: abono2fer,   
+        dias2fer: dias2fer,  
         ini3fer: ini3fer,
         dias3fer: dias3fer,
-        abono3fer: abono3fer,
-        slug: slug,
+        slug: filial+matricula+inicioper
     }).then(() => {
         res.redirect("/");
-    });
+    }).catch(err => {
+        console.error(err.message+" "+ini2fer);
+    })
 });
 
 router.get('/ferias/edit/:id', (req, res) => {
@@ -75,33 +73,28 @@ router.get('/ferias/edit/:id', (req, res) => {
 
 //TODO: implementar update
 router.post('/ferias/update', (req, res) => {
+    let id = req.body.id;
     let ini1fer = req.body.ini1fer;
     let dias1fer = req.body.dias1fer;
-    let abono1fer = req.body.abono1fer;
     let ini2fer = req.body.ini2fer;
     let dias2fer = req.body.dias2fer;
-    let abono2fer = req.body.abono2fer;
     let ini3fer = req.body.ini3fer;
     let dias3fer = req.body.dias3fer;
-    let abono3fer = req.body.abono3fer;
+    console.log(ini2fer);
 
     Aquisitivo.update({
         ini1fer: ini1fer,
         dias1fer: dias1fer,
-        abono1fer: abono1fer,
         ini2fer: ini2fer,
         dias2fer:dias2fer,
-        abono2fer:abono2fer,
         ini3fer:ini3fer,
         dias3fer:dias3fer,
-        abono3fer:abono3fer 
     },
         {where: {id: id}},
         ).then(() =>{
             res.redirect('/');
         }).catch(error => {
             console.log(error.message);
-            res.redirect('/');
         })
 })
 

@@ -8,22 +8,24 @@
             <h2>Solicitar férias</h2>
         </div>
         <div class="card-body">
-            <form method="post" action="/ferias/update">
+            <form method="post" action="/ferias/update/">
+                
                 <div class="container" style="min-width:300px">
+                    <input type="hidden" name="id" value="<%= ferias.id %>">
                     <p name="matricula"> Matricula: <%= ferias.matricula %></p>
                     <p name="nome">Nome: <%= ferias.nome %></p>
                     <p>Inicio periodo aquisitivo: <%= moment(ferias.inicioper).format('DD/MM/YYYY'); %></p>
                     <p>Fim periodo aquisitivo: <%= moment(ferias.fimper).format('DD/MM/YYYY'); %></p>
-                    
                     <div>
                         <label>1º periodo de férias marcado para <%= moment(ferias.ini1fer).format('DD/MM/YYYY'); %> por <%= ferias.dias1fer %> dias, marcar para</label>
-                        <input id="date" type="date">
-                        por <input type="text"> dias    
+                        <input type="date" name="ini1fer">
+                        por <input type="number" name="dias1fer"> dias
+                        
                     </div>
                     <div>
                         <label>2º periodo de férias marcado para <%= moment(ferias.ini2fer).format('DD/MM/YYYY'); %> por <%= ferias.dias2fer %> dias, marcar para</label>
-                        <input id="date" type="date">
-                        por <input type="number"> dias
+                        <input id="date" type="date" name="ini1fer">
+                        por <input type="number" name="dias1fer"> dias
                     </div>
                     <div>
                         <label>
