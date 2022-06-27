@@ -6,6 +6,7 @@ const aquisitivoController = require('./aquisitivo/aquisitivoController');
 const Aquisitivo = require('./aquisitivo/Aquisitivo');
 const solicitacaoController = require('./solicitacoes/solicitacaoController');
 const Solicitacao = require('./solicitacoes/Solicitacao');
+const loginController = require('./views/login/loginController');
 
 app.set('view engine', 'ejs');
 
@@ -22,8 +23,9 @@ connection
         console.log(err);
     })
 
-app.use('/', aquisitivoController);
-app.use('/', solicitacaoController);
+app.use('/ferias', aquisitivoController);
+app.use('/solicitacao', solicitacaoController);
+app.use('/login', loginController);
 
 /*app.get('/', (req, res) => {
     Articles.findAll()
