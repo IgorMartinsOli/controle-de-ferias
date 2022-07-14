@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Aquisitivo = require('./aquisitivo');
 const moment = require("moment");
+const verificaNull = require('../utils/verificarNulo');
 
 router.get('/', function(req, res) {
     Aquisitivo.findAll()
@@ -10,7 +11,7 @@ router.get('/', function(req, res) {
     })
 });
 
-router.get('/admin/ferias/new', (req, res) => {
+router.get('/admin/new', (req, res) => {
     res.render("admin/ferias/new");
 }),
 
@@ -22,7 +23,7 @@ router.post("/aquisitivo/save", (req, res) => {
     let nomecc = req.body.nomecc;
     let codcargo = req.body.codcargo;
     let nomecargo = req.body.nomecargo;
-    let inicioper = req.body.inicioper;
+    let inicioper = typeof req.body.inicioper; if(typeof inicioper == "undefined"){inicioper = null};
     let fimper = req.body.fimper;
     let ini1fer = req.body.ini1fer;
     let dias1fer = req.body.dias1fer;
@@ -52,13 +53,13 @@ router.post("/aquisitivo/save", (req, res) => {
         dias3fer: dias3fer,
         slug: filial+matricula+inicioper
     }).then(() => {
-        res.redirect("/");
+        res.redirect("/ferias");
     }).catch(err => {
         console.error(err.message+" "+ini2fer);
     })
 });
 
-router.get('/ferias/edit/:id', (req, res) => {
+router.get('/edit/:id', (req, res) => {
     let id = req.params.id;
     Aquisitivo.findByPk(id).then(ferias => {
         if(ferias !== undefined){
@@ -72,7 +73,7 @@ router.get('/ferias/edit/:id', (req, res) => {
 });
 
 //TODO: implementar update
-router.post('/ferias/update', (req, res) => {
+router.post('/update', (req, res) => {
     let id = req.body.id;
     let ini1fer = req.body.ini1fer;
     let dias1fer = req.body.dias1fer;
@@ -80,7 +81,6 @@ router.post('/ferias/update', (req, res) => {
     let dias2fer = req.body.dias2fer;
     let ini3fer = req.body.ini3fer;
     let dias3fer = req.body.dias3fer;
-    console.log(ini2fer);
 
     Aquisitivo.update({
         ini1fer: ini1fer,
