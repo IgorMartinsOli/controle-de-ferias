@@ -1,39 +1,49 @@
 <%- include('../../partials/header.ejs') %>
 <%- include('../../partials/homenavbar.ejs') %>
 
-<div class="container">
+<div class="container-fluid">
     <hr>
     <div class="card">
         <div class="card-header">
             <h2>Solicitar férias</h2>
         </div>
-        <div class="card-body">
-            <form method="post" action="/ferias/update/">
-                
-                <div class="container" style="min-width:300px">
-                    <input type="hidden" name="id" value="<%= ferias.id %>">
+        <input type="hidden" name="id" value="<%= ferias.id %>">
                     <p name="matricula"> Matricula: <%= ferias.matricula %></p>
                     <p name="nome">Nome: <%= ferias.nome %></p>
                     <p>Inicio periodo aquisitivo: <%= moment(ferias.inicioper).format('DD/MM/YYYY'); %></p>
                     <p>Fim periodo aquisitivo: <%= moment(ferias.fimper).format('DD/MM/YYYY'); %></p>
-                    <div>
-                        <label>1º periodo de férias marcado para <%= moment(ferias.ini1fer).format('DD/MM/YYYY'); %> por <%= ferias.dias1fer %> dias, marcar para</label>
-                        <input type="date" name="ini1fer">
-                        por <input type="number" name="dias1fer"> dias
-                        
+        <div class="card-body">
+            <form method="post" action="/ferias/update">
+                <div class="row">
+                    <p>1º periodo de férias marcado para <%= moment(ferias.ini1fer).format('DD/MM/YYYY'); %> por <%= ferias.dias1fer %> dias, marcar para</p>
+                    <div class="col">
+                        <input type="date" class="form-control">
                     </div>
-                    <div>
-                        <label>2º periodo de férias marcado para <%= moment(ferias.ini2fer).format('DD/MM/YYYY'); %> por <%= ferias.dias2fer %> dias, marcar para</label>
-                        <input type="date" name="ini2fer">
-                        por <input type="number" name="dias2fer"> dias
-                    </div>
-                    <div>
-                        <label>3º periodo de férias marcado para <%= moment(ferias.ini3fer).format('DD/MM/YYYY'); %> por <%= ferias.dias3fer %> dias, marcar para</label>
-                        <input type="date" name="ini3fer">
-                        por <input type="number" name="dias3fer"> dias
+                    <p>por</p>
+                    <div class="col">
+                        <input type="number" class="form-control" placeholder="dias">
                     </div>
                 </div>
-                <br><hr>
+                <div class="row">
+                    <p>1º periodo de férias marcado para <%= moment(ferias.ini1fer).format('DD/MM/YYYY'); %> por <%= ferias.dias1fer %> dias, marcar para</p>
+                    <div class="col">
+                        <input type="date" class="form-control">
+                    </div>
+                    <p>por</p>
+                    <div class="col">
+                        <input type="number" class="form-control" placeholder="dias">
+                    </div>
+                </div>
+                <div class="row">
+                    <p>1º periodo de férias marcado para <%= moment(ferias.ini1fer).format('DD/MM/YYYY'); %> por <%= ferias.dias1fer %> dias, marcar para</p>
+                    <div class="col">
+                        <input type="date" class="form-control">
+                    </div>
+                    <p>por</p>
+                    <div class="col">
+                        <input type="number" class="form-control" placeholder="dias">
+                    </div>
+                </div>
                 <button class="btn btn-success">Solicitar</button>
             </form>
         </div>

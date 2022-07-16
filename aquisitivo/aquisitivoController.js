@@ -23,7 +23,7 @@ router.post("/aquisitivo/save", (req, res) => {
     let nomecc = req.body.nomecc;
     let codcargo = req.body.codcargo;
     let nomecargo = req.body.nomecargo;
-    let inicioper = typeof req.body.inicioper; if(typeof inicioper == "undefined"){inicioper = null};
+    let inicioper = req.body.inicioper;
     let fimper = req.body.fimper;
     let ini1fer = req.body.ini1fer;
     let dias1fer = req.body.dias1fer;
@@ -32,8 +32,6 @@ router.post("/aquisitivo/save", (req, res) => {
     let ini3fer = req.body.ini3fer;
     let dias3fer = req.body.dias3fer;
     let slug = req.body.slug;
-
-    console.log(ini2fer);
 
     Aquisitivo.create({
         filial: filial,
@@ -72,12 +70,11 @@ router.get('/edit/:id', (req, res) => {
     })
 });
 
-//TODO: implementar update
 router.post('/update', (req, res) => {
     let id = req.body.id;
     let ini1fer = req.body.ini1fer;
     let dias1fer = req.body.dias1fer;
-    let ini2fer = req.body.ini2fer;
+    let ini2fer = null;
     let dias2fer = req.body.dias2fer;
     let ini3fer = req.body.ini3fer;
     let dias3fer = req.body.dias3fer;
