@@ -7,43 +7,57 @@
         <div class="card-header">
             <h2>Solicitar férias</h2>
         </div>
-        <input type="hidden" name="id" value="<%= ferias.id %>">
-                    <p name="matricula"> Matricula: <%= ferias.matricula %></p>
-                    <p name="nome">Nome: <%= ferias.nome %></p>
-                    <p>Inicio periodo aquisitivo: <%= moment(ferias.inicioper).format('DD/MM/YYYY'); %></p>
-                    <p>Fim periodo aquisitivo: <%= moment(ferias.fimper).format('DD/MM/YYYY'); %></p>
+        <p name="matricula"> Matricula: <%= ferias.matricula %></p>
+        <p name="nome">Nome: <%= ferias.nome %></p>
+        <p>Inicio periodo aquisitivo: <%= moment(ferias.inicioper).format('DD/MM/YYYY'); %></p>
+        <p>Fim periodo aquisitivo: <%= moment(ferias.fimper).format('DD/MM/YYYY'); %></p>
         <div class="card-body">
             <form method="post" action="/ferias/update">
+                <input type="hidden" name="id" value="<%= ferias.id %>">
                 <div class="row">
-                    <p>1º periodo de férias marcado para <%= moment(ferias.ini1fer).format('DD/MM/YYYY'); %> por <%= ferias.dias1fer %> dias, marcar para</p>
+                        <% if (ferias.ini1fer != null) {%>
+                            <p>1º periodo de férias marcado para <%= moment(ferias.ini1fer).format('DD/MM/YYYY'); %> por <%= ferias.dias1fer %> dias, marcar para</p>
+                        <% } else { %>
+                            <p>1º periodo de ferias nao marcado, marcar para: </p>
+                        <% } %>
                     <div class="col">
-                        <input type="date" class="form-control">
+                        <input name="ini1fer" type="date" class="form-control">
                     </div>
                     <p>por</p>
                     <div class="col">
-                        <input type="number" class="form-control" placeholder="dias">
+                        <input type="number" class="form-control" placeholder="dias" name="dias1fer">
                     </div>
                 </div>
+
                 <div class="row">
-                    <p>2º periodo de férias marcado para <%= moment(ferias.ini2fer).format('DD/MM/YYYY'); %> por <%= ferias.dias2fer %> dias, marcar para</p>
+                    <% if (ferias.ini2fer != null) {%>
+                        <p>2º periodo de férias marcado para <%= moment(ferias.ini2fer).format('DD/MM/YYYY'); %> por <%= ferias.dias2fer %> dias, marcar para</p>
+                    <% } else { %>
+                        <p>2º periodo de ferias nao marcado, marcar para: </p>
+                    <% } %>
                     <div class="col">
-                        <input type="date" class="form-control">
+                        <input name="ini2fer" type="date" class="form-control">
                     </div>
                     <p>por</p>
                     <div class="col">
-                        <input type="number" class="form-control" placeholder="dias">
+                        <input type="number" class="form-control" placeholder="dias" name="dias2fer">
                     </div>
                 </div>
-                <div class="row">
-                    <p>3º periodo de férias marcado para <%= moment(ferias.ini3fer).format('DD/MM/YYYY'); %> por <%= ferias.dias3fer %> dias, marcar para</p>
-                    <div class="col">
-                        <input type="date" class="form-control">
-                    </div>
-                    <p>por</p>
-                    <div class="col">
-                        <input type="number" class="form-control" placeholder="dias">
-                    </div>
+                
+            <div class="row">
+                    <% if (ferias.ini3fer != null) {%>
+                        <p>3º periodo de férias marcado para <%= moment(ferias.ini3fer).format('DD/MM/YYYY'); %> por <%= ferias.dias3fer %> dias, marcar para</p>
+                    <% } else { %>
+                        <p>3º periodo de ferias nao marcado, marcar para: </p>
+                    <% } %>
+                <div class="col">
+                    <input name="ini3fer" type="date" class="form-control">
                 </div>
+                <p>por</p>
+                <div class="col">
+                    <input type="number" class="form-control" placeholder="dias" name="dias3fer">
+                </div>
+            </div>
                 <button class="btn btn-success">Solicitar</button>
             </form>
         </div>

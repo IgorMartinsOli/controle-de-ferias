@@ -72,11 +72,11 @@ router.get('/edit/:id', (req, res) => {
 
 router.post('/update', (req, res) => {
     let id = req.body.id;
-    let ini1fer = req.body.ini1fer;
+    let ini1fer = req.body.ini1fer || null;
     let dias1fer = req.body.dias1fer;
-    let ini2fer = null;
+    let ini2fer = req.body.ini2fer || null;
     let dias2fer = req.body.dias2fer;
-    let ini3fer = req.body.ini3fer;
+    let ini3fer = req.body.ini3fer || null;
     let dias3fer = req.body.dias3fer;
 
     Aquisitivo.update({
@@ -89,7 +89,7 @@ router.post('/update', (req, res) => {
     },
         {where: {id: id}},
         ).then(() =>{
-            res.redirect('/');
+            res.redirect('/ferias');
         }).catch(error => {
             console.log(error.message);
         })

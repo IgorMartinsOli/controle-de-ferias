@@ -37,12 +37,31 @@
                         <td class="text-left"><%= ferias.nomecargo %></td>
                         <td><%= moment(ferias.inicioper).format('DD/MM/YYYY'); %></td>
                         <td><%= moment(ferias.fimper).format('DD/MM/YYYY'); %></td>
-                        <td><%= moment(ferias.ini1fer).format('DD/MM/YYYY'); %></td>
-                        <td><%= ferias.dias1fer %></td>
-                        <td><%= moment(ferias.ini2fer).format('DD/MM/YYYY'); %></td>
-                        <td><%= ferias.dias2fer %></td>
-                        <td><%= moment(ferias.ini3fer).format('DD/MM/YYYY'); %></td>
-                        <td><%= ferias.dias3fer %></td>
+
+                        <% if (ferias.ini1fer != null){ %>
+                            <td><%= moment(ferias.ini1fer).format('DD/MM/YYYY'); %></td>
+                            <td><%= ferias.dias1fer %></td>
+                        <% }else { %>
+                            <td></td>
+                            <td></td>
+                        <% } %>
+                        
+                        <% if (ferias.ini2fer != null){ %>
+                            <td><%= moment(ferias.ini2fer).format('DD/MM/YYYY'); %></td>
+                            <td><%= ferias.dias2fer %></td>
+                        <% }else { %>
+                            <td></td>
+                            <td></td>
+                        <% } %>
+
+                        <% if (ferias.ini3fer != null){ %>
+                            <td><%= moment(ferias.ini3fer).format('DD/MM/YYYY'); %></td>
+                            <td><%= ferias.dias3fer %></td>
+                        <% }else { %>
+                            <td></td>
+                            <td></td>
+                        <% } %>
+
                         <td>
                             <a href="/ferias/edit/<%= ferias.id %>" class="btn btn-warning">Solicitar ferias</a>
                         </td>
