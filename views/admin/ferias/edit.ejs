@@ -12,7 +12,7 @@
         <p>Inicio periodo aquisitivo: <%= moment(ferias.inicioper).format('DD/MM/YYYY'); %></p>
         <p>Fim periodo aquisitivo: <%= moment(ferias.fimper).format('DD/MM/YYYY'); %></p>
         <div class="card-body">
-            <form method="post" action="/ferias/update" onsubmit="confirmDelete(event, this)">
+            <form method="post" action="/ferias/update" name="formulario">
                 <input type="hidden" name="id" value="<%= ferias.id %>">
                 <div class="row">
                         <% if (ferias.ini1fer != null) {%>
@@ -58,17 +58,56 @@
                     <input type="number" class="form-control" placeholder="dias" name="dias3fer">
                 </div>
             </div>
-                <button class="btn btn-success">Solicitar</button>
+                <button class="btn btn-success" onclick="validar()">Solicitar</button>
             </form>
         </div>
     </div>
 </div>
 <%- include('../../partials/footer.ejs') %>
 <script>
-    function confirmDelete(event, form) {
-        var choice = alert("Deseja deletar o item?");
+    function confirmDelete() {
+        var dateOne = document.getElementsByName('ini1fer').value;
+        alert(dateOne);
+        /*var choice = confirm("Deseja deletar o item?");
         if(!choice){
             event.preventDefault();
+        }*/
+    }
+
+    function validar(){
+        var Pferias = formulario.ini1fer.value;
+        var DPferias = parseInt(formulario.dias1fer.value);
+        var Sferias = formulario.ini2fer.value;
+        var DSferias = parseInt(formulario.dias2fer.value);
+        var Tferias = formulario.ini3fer.value;
+        var DTferias = parseInt(formulario.dias3fer.value);
+
+        //TODO: PEGAR A DATA ATUAL E COMPARAR COM OS INPUTS
+        var tot = 0;
+        const timeElapsed = Date.now();
+        const today = new Date(timeElapsed);
+        console.log(today);
+
+        //VERIFICA SE NÃO É NaN E SOMA NA VARIAVEL TOT
+        if(!isNaN(DPferias)){
+            tot += DPferias;
+            if(!isNaN(DSferias)){
+                tot += DSferias;
+                if(!isNaN(DTferias)){
+                    tot += DTferias;
+                }
+            }
+        }
+
+        //VERIFICA SE O TOTAL DE DIAS DE FERIAS NÃO É MAIOR QUE 30
+        if(tot > 30){
+            alert('Total de dias maior que 30')
+            event.preventDefault();
+        }
+
+
+        if(Pferias < now()) {
+            alert()
         }
     }
 </script>
