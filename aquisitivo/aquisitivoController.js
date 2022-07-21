@@ -129,4 +129,4 @@ router.get('/ferias/page/:num', (req, res) => {
         res.render('admin/articles/page', {result: result});
     })
 })
-module.exports = router;
+module.exports = router; 

@@ -65,15 +65,6 @@
 </div>
 <%- include('../../partials/footer.ejs') %>
 <script>
-    function confirmDelete() {
-        var dateOne = document.getElementsByName('ini1fer').value;
-        alert(dateOne);
-        /*var choice = confirm("Deseja deletar o item?");
-        if(!choice){
-            event.preventDefault();
-        }*/
-    }
-
     function validar(){
         var Pferias = formulario.ini1fer.value;
         var DPferias = parseInt(formulario.dias1fer.value);
@@ -82,12 +73,43 @@
         var Tferias = formulario.ini3fer.value;
         var DTferias = parseInt(formulario.dias3fer.value);
 
+
+        //OQUE JÁ FIZ:
+        //VERIFIQUEI SE O TOTAL DE FERIAS É MAIOR QUE 30
+
+
         //TODO: PEGAR A DATA ATUAL E COMPARAR COM OS INPUTS
         var tot = 0;
         const timeElapsed = Date.now();
         const today = new Date(timeElapsed);
-        console.log(today);
+        let day = today.getDate();
+        let month = today.getMonth();
+        let year = today.getFullYear();
+        var dataAtualFormatada;
+        var dataInputFormatada;
+        try{
+            dataAtualFormatada = new Date(year, month, day);
+            confirm(dataAtualFormatada);
+        }catch(e){
+            confirm(e.message);
+        }
 
+        try{
+            let PdateFull = Pferias.split('-');
+            confirm(PdateFull)
+            dataInputFormatada = new Date(PdateFull[0], PdateFull[2], PdateFull[1]);
+            confirm(dataInputFormatada)
+        } catch (e){
+            confirm(e.message)
+        }
+
+        try{
+            var test = dataInputFormatada > dataAtualFormatada ? true : false;
+            confirm(test);
+        }catch(e){
+            confirm(e.message)
+        }
+        
         //VERIFICA SE NÃO É NaN E SOMA NA VARIAVEL TOT
         if(!isNaN(DPferias)){
             tot += DPferias;
@@ -105,9 +127,8 @@
             event.preventDefault();
         }
 
-
-        if(Pferias < now()) {
-            alert()
+        if(Pferias < today) {
+            alert('data menor')
         }
     }
 </script>
