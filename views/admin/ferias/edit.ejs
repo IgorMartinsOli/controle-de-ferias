@@ -98,15 +98,16 @@
             }
         }
 
+        //VERIFICA SE A DATA DE FERIAS ESTÃO SENDO SOLICITADAS ANTES DE 20 DIAS DO INICIO
         try{
         if(isNear(Pformat, dataLimite)){
-            alert('1º periodo de ferias muito proximo, mandar e-mail!')
+            alert('1º periodo de ferias muito proximo, mandar por e-mail!')
             event.preventDefault();
-        }else if(isNear(Sformat, dataLimite)){
-            alert('2º periodo de ferias muito proximo, mandar e-mail!')
+        }else if(isNear(Sformat, dataLimite)){ 
+            alert('2º periodo de ferias muito proximo, mandar por e-mail!')
             event.preventDefault();
         }else if (isNear(Tformat, dataLimite)){
-            alert('3º periodo de ferias muito proximo, mandar e-mail!')
+            alert('3º periodo de ferias muito proximo, mandar por e-mail!')
             event.preventDefault();
         }}catch (e){
             alert(e.message);
