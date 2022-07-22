@@ -66,50 +66,52 @@
 <%- include('../../partials/footer.ejs') %>
 <script>
     function validar(){
+        try{
         var Pferias = formulario.ini1fer.value;
         var DPferias = parseInt(formulario.dias1fer.value);
         var Sferias = formulario.ini2fer.value;
         var DSferias = parseInt(formulario.dias2fer.value);
         var Tferias = formulario.ini3fer.value;
         var DTferias = parseInt(formulario.dias3fer.value);
-
-
-        //OQUE JÁ FIZ:
-        //VERIFIQUEI SE O TOTAL DE FERIAS É MAIOR QUE 30
-
-
-        //TODO: PEGAR A DATA ATUAL E COMPARAR COM OS INPUTS
-        var tot = 0;
+        //PEGANDO DATA ATUAL SEPARADAMENTE
         const timeElapsed = Date.now();
         const today = new Date(timeElapsed);
-        let day = today.getDate();
-        let month = today.getMonth();
-        let year = today.getFullYear();
-        var dataAtualFormatada;
-        var dataInputFormatada;
-        try{
-            dataAtualFormatada = new Date(year, month, day);
-            confirm(dataAtualFormatada);
-        }catch(e){
-            confirm(e.message);
+        let day = today.getDate(); let month = today.getMonth(); let year = today.getFullYear();
+
+        let arrPformat = Pferias.split('-');
+        let arrSformat = Sferias.split('-');
+        let arrDformat = Tferias.split('-');
+        var tot = 0;
+
+        let Pformat = new Date(arrPformat[0], arrPformat[1]-1, arrPformat[2]);
+        let Sformat = new Date(arrPformat[0], arrPformat[1]-1, arrPformat[2]);
+        let Tformat = new Date(arrPformat[0], arrPformat[1]-1, arrPformat[2]);
+
+        var dataAtualFormatada = new Date(year, month, day);
+        dataLimite = new Date(dataAtualFormatada.setDate(dataAtualFormatada.getDate() + 20));
+
+        var isNear = function(ferias, limite) {
+            if(ferias > limite){
+                return false;
+            }else{
+                return true;
+            }
         }
 
         try{
-            let PdateFull = Pferias.split('-');
-            confirm(PdateFull)
-            dataInputFormatada = new Date(PdateFull[0], PdateFull[2], PdateFull[1]);
-            confirm(dataInputFormatada)
-        } catch (e){
-            confirm(e.message)
+        if(isNear(Pformat, dataLimite)){
+            alert('1º periodo de ferias muito proximo, mandar e-mail!')
+            event.preventDefault();
+        }else if(isNear(Sformat, dataLimite)){
+            alert('2º periodo de ferias muito proximo, mandar e-mail!')
+            event.preventDefault();
+        }else if (isNear(Tformat, dataLimite)){
+            alert('3º periodo de ferias muito proximo, mandar e-mail!')
+            event.preventDefault();
+        }}catch (e){
+            alert(e.message);
         }
 
-        try{
-            var test = dataInputFormatada > dataAtualFormatada ? true : false;
-            confirm(test);
-        }catch(e){
-            confirm(e.message)
-        }
-        
         //VERIFICA SE NÃO É NaN E SOMA NA VARIAVEL TOT
         if(!isNaN(DPferias)){
             tot += DPferias;
@@ -125,10 +127,8 @@
         if(tot > 30){
             alert('Total de dias maior que 30')
             event.preventDefault();
-        }
-
-        if(Pferias < today) {
-            alert('data menor')
+        }}catch(e) {
+            alert(e.message);
         }
     }
 </script>
