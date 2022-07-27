@@ -19,6 +19,7 @@ const Solicitacao = connection.define('solicitacoes', {
         type: Sequelize.BOOLEAN,
         allowNull: true
     }
+
 })
 
 //Solicitacao.sync({force: true})
