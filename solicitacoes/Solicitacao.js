@@ -21,13 +21,16 @@ const Solicitacao = connection.define('solicitacoes', {
     }
 })
 
+//Solicitacao.sync({force: true})
 
-//Solicitacao.sync({force: true});
-Aquisitivo.hasMany(Solicitacao); //Um periodo aquisitivo tem muitas solicitacoes
+Solicitacao.belongsTo(Aquisitivo, {
+    constraint: true,
+    foreignKey: 'idAquisitivo'
+});
 
+Aquisitivo.hasOne(Solicitacao, {
+    foreignKey: 'idAquisitivo'
 
-Solicitacao.belongsTo(Aquisitivo); //Uma solicitacao pertence a um periodo
-
-
+});
 
 module.exports = Solicitacao;

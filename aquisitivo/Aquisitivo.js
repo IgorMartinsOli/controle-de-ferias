@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const connection = require('../database/database');
+const Solicitacao = require('../solicitacoes/Solicitacao')
 
 const Aquisitivo = connection.define('aquisitivo', {
     filial: {
