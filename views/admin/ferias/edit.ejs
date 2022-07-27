@@ -81,7 +81,6 @@
         let arrPformat = Pferias.split('-');
         let arrSformat = Sferias.split('-');
         let arrDformat = Tferias.split('-');
-        var tot = 0;
 
         let Pformat = new Date(arrPformat[0], arrPformat[1]-1, arrPformat[2]);
         let Sformat = new Date(arrPformat[0], arrPformat[1]-1, arrPformat[2]);
@@ -103,7 +102,7 @@
         if(isNear(Pformat, dataLimite)){
             alert('1º periodo de ferias muito proximo, mandar por e-mail!')
             event.preventDefault();
-        }else if(isNear(Sformat, dataLimite)){ 
+        }else if(isNear(Sformat, dataLimite)){
             alert('2º periodo de ferias muito proximo, mandar por e-mail!')
             event.preventDefault();
         }else if (isNear(Tformat, dataLimite)){
@@ -113,6 +112,7 @@
             alert(e.message);
         }
 
+        var tot = 0;
         //VERIFICA SE NÃO É NaN E SOMA NA VARIAVEL TOT
         if(!isNaN(DPferias)){
             tot += DPferias;
