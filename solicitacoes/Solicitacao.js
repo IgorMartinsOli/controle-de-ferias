@@ -22,8 +22,6 @@ const Solicitacao = connection.define('solicitacoes', {
 
 })
 
-//Solicitacao.sync({force: true})
-
 Solicitacao.belongsTo(Aquisitivo, {
     constraint: true,
     foreignKey: 'idAquisitivo'
@@ -33,5 +31,7 @@ Aquisitivo.hasOne(Solicitacao, {
     foreignKey: 'idAquisitivo'
 
 });
+
+//Solicitacao.sync({force: true})
 
 module.exports = Solicitacao;
